@@ -8,16 +8,14 @@
 </head>
 
 <body>
-    <h1>MY PORTFOLIO</h1>
-
     <header>
+        <h1>Fahad J</h1>
+        <p><strong>Full Stack Developer</strong></p>
         <nav>
             <ul>
-                <li"><a href="#about">About</a></li>
-                    <br>
-                    <li"><a href="#projects">Projects</a></li>
-                        <br>
-                        <li"><a href="#contact">Contact</a></li>
+                <li><a href=#about>About</a></li>
+                <li><a href=#projects>Projects</a></li>
+                <li><a href=#contact>Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -25,22 +23,16 @@
     <main>
         <!-- About section -->
         <section id="about">
-            <h2>ABOUT ME</h2>
-            <img src="/images/FAHAD J.jpeg" alt="PHOTO OF ME" width="200" height="200" ;">
-            <h3>Hello i am <span style="color: brown;">Fahad J</span></h3>
-            <article>
-                <p> Hi, I'm FAHAD, an aspiring Full Stack Web Developer with a strong passion for building dynamic
-                    and
-                    user-friendly web applications. I am currently developing my skills in both front-end and back-end
-                    technologies, including HTML, CSS, JavaScript, React, Node.js, and databases like MySQL and MongoDB.
-                    I
-                    enjoy turning creative ideas into real, functional websites and solving problems through clean and
-                    efficient code. I am constantly learning and growing in this ever-evolving tech world, always eager
-                    to
-                    take on new challenges and build projects that make a difference. My goal is to become a skilled
-                    full
-                    stack developer who can design, develop, and deploy complete web solutions from scratch."</p>
-            </article>
+            <h2>About Me</h2>
+            <h3>Hello, I am Fahad J</h3>
+            <img src="/images/FAHAD J.jpeg" alt="PHOTO OF ME" width="200" height="200">
+            <p> Hi, I'm FAHAD, an aspiring Full Stack Web Developer with a strong passion for building dynamic
+                and user-friendly web applications. I am currently developing my skills in both front-end and back-end
+                technologies, including HTML, CSS, JavaScript, React, Node.js, and databases like MySQL and MongoDB. I
+                enjoy turning creative ideas into real, functional websites and solving problems through clean and
+                efficient code. I am constantly learning and growing in this ever-evolving tech world, always eager to
+                take on new challenges and build projects that make a difference. My goal is to become a skilled full
+                stack developer who can design, develop, and deploy complete web solutions from scratch.</p>
         </section>
         <!--About section end  -->
 
@@ -65,15 +57,18 @@
 
         <section id="contact">
             <h2>CONTACT ME</h2>
-            <form>
+            <form id="contactForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="name" name="name" required minlength="2" maxlength="50" placeholder="Enter your full name"><br><br>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address"><br><br>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required minlength="3" maxlength="100" placeholder="Enter subject"><br><br>
 
                 <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+                <textarea id="message" name="message" rows="5" cols="30" required minlength="10" maxlength="1000" placeholder="Enter your message (minimum 10 characters)"></textarea><br><br>
 
                 <button type="submit" value="Submit">Submit</button>
                 <button type="reset" value="Reset">Reset</button>
@@ -81,12 +76,51 @@
         </section>
         <!-- Contact section end -->
 
-        <footer>
-            <p>&copy; 2024 Fahad J. All rights reserved.</p>
-        </footer>
-
-
     </main>
+
+    <footer>
+        <p>&copy; 2024 Fahad J. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Validation checks
+            if (!name || name.length < 2) {
+                alert('Name must be at least 2 characters long');
+                return false;
+            }
+            
+            if (!email || !isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+            
+            if (!subject || subject.length < 3) {
+                alert('Subject must be at least 3 characters long');
+                return false;
+            }
+            
+            if (!message || message.length < 10) {
+                alert('Message must be at least 10 characters long');
+                return false;
+            }
+            
+            alert('Form submitted successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject);
+            this.reset();
+        });
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
 </body>
 
 </html>
