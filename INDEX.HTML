@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY PORTFOLIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 </head>
 
 <body>
@@ -41,12 +47,14 @@
             <h2>MY PROJECTS</h2>
             <article>
                 <h3>Project 1: Personal Portfolio Website</h3>
+                <img src="/images/download.jpg" alt="responsive portfolio website" width="300" height="200">
                 <p>Created a responsive personal portfolio website using HTML, CSS, and JavaScript to showcase my
                     skills, projects, and contact information. The website features a clean design, smooth navigation,
                     and is optimized for both desktop and mobile devices.</p>
                 <a href="https://profilefahad.netlify.app/" target="_blank">Project 1</a>
 
                 <h3>Project 2: DEBUGGING QUIZ WEB APPLICATION</h3>
+                <img src="/images/Search engines Customizable Cartoon Illustrations _ Bro Style.jpg" alt="Debugging quiz web application" width="300" height="200">
                 <p>Designed frontend for an interactive debugging quiz application for Collage event</p>
                 <a href="https://quiz-frontend-8n74.onrender.com" target="_blank">Project 2</a>
             </article>
@@ -59,16 +67,19 @@
             <h2>CONTACT ME</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required minlength="2" maxlength="50" placeholder="Enter your full name"><br><br>
+                <input type="text" id="name" name="name" required minlength="2" maxlength="50"
+                    placeholder="Enter your full name"><br><br>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required placeholder="Enter your email address"><br><br>
 
                 <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required minlength="3" maxlength="100" placeholder="Enter subject"><br><br>
+                <input type="text" id="subject" name="subject" required minlength="3" maxlength="100"
+                    placeholder="Enter subject"><br><br>
 
                 <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" cols="30" required minlength="10" maxlength="1000" placeholder="Enter your message (minimum 10 characters)"></textarea><br><br>
+                <textarea id="message" name="message" rows="5" cols="30" required minlength="10" maxlength="1000"
+                    placeholder="Enter your message (minimum 10 characters)"></textarea><br><br>
 
                 <button type="submit" value="Submit">Submit</button>
                 <button type="reset" value="Reset">Reset</button>
@@ -79,48 +90,16 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Fahad J. All rights reserved.</p>
+      
+        <div class="dock">
+            <div class="icon"> <i class="fab fa-github"></i></div>
+            <div class="icon"> <i class="fab fa-linkedin"></i></div>
+            <div class="icon"> <i class="fab fa-instagram"></i></div>
+        </div>
+          <p>&copy; 2024 Fahad J. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // Validation checks
-            if (!name || name.length < 2) {
-                alert('Name must be at least 2 characters long');
-                return false;
-            }
-            
-            if (!email || !isValidEmail(email)) {
-                alert('Please enter a valid email address');
-                return false;
-            }
-            
-            if (!subject || subject.length < 3) {
-                alert('Subject must be at least 3 characters long');
-                return false;
-            }
-            
-            if (!message || message.length < 10) {
-                alert('Message must be at least 10 characters long');
-                return false;
-            }
-            
-            alert('Form submitted successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject);
-            this.reset();
-        });
-        
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-    </script>
+    
 </body>
 
 </html>
