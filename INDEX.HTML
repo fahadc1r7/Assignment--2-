@@ -15,9 +15,16 @@
 
 <body>
     <header>
-        <h1>Fahad J</h1>
-        <p><strong>Full Stack Developer</strong></p>
-        <nav>
+        <div class="header-container">
+            <h1>Fahad J</h1>
+            <p><strong>Full Stack Developer</strong></p>
+        </div>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu" id="navMenu">
             <ul>
                 <li><a href=#about>About</a></li>
                 <li><a href=#projects>Projects</a></li>
@@ -51,12 +58,12 @@
                 <p>Created a responsive personal portfolio website using HTML, CSS, and JavaScript to showcase my
                     skills, projects, and contact information. The website features a clean design, smooth navigation,
                     and is optimized for both desktop and mobile devices.</p>
-                <a href="https://profilefahad.netlify.app/" target="_blank">Project 1</a>
+                <a class="project-link" href="https://profilefahad.netlify.app/" target="_blank">Project 1</a>
 
                 <h3>Project 2: DEBUGGING QUIZ WEB APPLICATION</h3>
                 <img src="/images/Search engines Customizable Cartoon Illustrations _ Bro Style.jpg" alt="Debugging quiz web application" width="300" height="200">
                 <p>Designed frontend for an interactive debugging quiz application for Collage event</p>
-                <a href="https://quiz-frontend-8n74.onrender.com" target="_blank">Project 2</a>
+                <a class="project-link" href="https://quiz-frontend-8n74.onrender.com" target="_blank">Project 2</a>
             </article>
         </section>
         <!-- Projects section end -->
@@ -66,23 +73,33 @@
         <section id="contact">
             <h2>CONTACT ME</h2>
             <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required minlength="2" maxlength="50"
-                    placeholder="Enter your full name"><br><br>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="50"
+                        placeholder="Enter your full name">
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email address"><br><br>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required minlength="3" maxlength="100"
-                    placeholder="Enter subject"><br><br>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required minlength="3" maxlength="100"
+                        placeholder="Enter subject">
+                </div>
 
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" cols="30" required minlength="10" maxlength="1000"
-                    placeholder="Enter your message (minimum 10 characters)"></textarea><br><br>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" cols="30" required minlength="10" maxlength="1000"
+                        placeholder="Enter your message (minimum 10 characters)"></textarea>
+                </div>
 
-                <button type="submit" value="Submit">Submit</button>
-                <button type="reset" value="Reset">Reset</button>
+                <div class="form-buttons">
+                    <button type="submit" value="Submit">Submit</button>
+                    <button type="reset" value="Reset">Reset</button>
+                </div>
             </form>
         </section>
         <!-- Contact section end -->
@@ -99,7 +116,23 @@
           <p>&copy; 2024 Fahad J. All rights reserved.</p>
     </footer>
 
-    
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
